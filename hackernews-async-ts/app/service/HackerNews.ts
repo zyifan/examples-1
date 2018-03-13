@@ -1,4 +1,5 @@
-import { Context, Service } from 'egg';
+import { Service } from 'egg';
+import { Context } from 'egg-di';
 
 export interface NewsItem {
   id: number;
@@ -15,10 +16,8 @@ export interface NewsItem {
 /**
  * HackerNews Api Service
  */
+@Context
 export class HackerNews extends Service {
-  constructor(ctx: Context) {
-    super(ctx);
-  }
   getConfig() {
     return this.app.config.news;
   }
